@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2인 오목 게임</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-container">
+    <header class="game-header">
+      <div>
+        <p class="eyebrow">TWO PLAYER OMOK</p>
+        <h1>오목 게임</h1>
+        <p class="subtitle">흑과 백이 번갈아 두어 먼저 5목을 완성하세요.</p>
+      </div>
+      <div class="status-box">
+        <span class="status-label">게임 상태</span>
+        <strong id="gameStatus">대기 중</strong>
+      </div>
+    </header>
+
+    <section class="dashboard">
+      <div class="player-card black-card active" id="blackCard">
+        <div class="player-title">
+          <span class="stone black-stone"></span>
+          <div>
+            <strong>흑</strong>
+            <span>BLACK</span>
+          </div>
+        </div>
+        <div class="win-rate">
+          <strong id="blackRate">50%</strong>
+          <span>승률</span>
+        </div>
+        <div class="record">
+          <span>승</span><b id="blackWins">0</b>
+          <span>패</span><b id="blackLosses">0</b>
+        </div>
+      </div>
+
+      <div class="turn-indicator">
+        <span>현재 차례</span>
+        <strong id="turnText">흑</strong>
+      </div>
+
+      <div class="player-card white-card" id="whiteCard">
+        <div class="player-title">
+          <span class="stone white-stone"></span>
+          <div>
+            <strong>백</strong>
+            <span>WHITE</span>
+          </div>
+        </div>
+        <div class="win-rate">
+          <strong id="whiteRate">50%</strong>
+          <span>승률</span>
+        </div>
+        <div class="record">
+          <span>승</span><b id="whiteWins">0</b>
+          <span>패</span><b id="whiteLosses">0</b>
+        </div>
+      </div>
+    </section>
+
+    <section class="board-wrap">
+      <div class="board" id="board" aria-label="오목판"></div>
+    </section>
+
+    <section class="controls">
+      <button class="btn primary" id="startBtn">시작</button>
+      <button class="btn danger" id="endBtn">종료</button>
+      <button class="btn secondary" id="restartBtn">다시하기</button>
+    </section>
+
+    <p class="help-text">※ 시작 버튼을 누른 후 흑부터 착수합니다. 같은 기물에 연속으로 5개 이상 놓으면 승리합니다.</p>
+  </main>
+
+  <div class="modal hidden" id="resultModal">
+    <div class="modal-content">
+      <div class="result-stone" id="resultStone"></div>
+      <p>GAME OVER</p>
+      <h2 id="resultTitle">흑 승리!</h2>
+      <p id="resultMessage">축하합니다.</p>
+      <button class="btn primary" id="modalRestartBtn">다시하기</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
